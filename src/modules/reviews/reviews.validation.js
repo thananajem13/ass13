@@ -28,10 +28,10 @@ export const updateReview={
         })
     }),
     body: joi.object().required().keys({
-        text:joi.string().required().messages({
+        text:joi.string().messages({
 
         }),  
-        rating:joi.number().min(1).max(5).required().messages({
+        rating:joi.number().min(1).max(5).messages({
 
         }),  
     }), 
