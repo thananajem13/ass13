@@ -1,0 +1,1306 @@
+{
+	"info": {
+		"_postman_id": "ccb546ee-a0f7-447a-8773-5bc16b27f642",
+		"name": "ass12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21953247"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"thana\",\r\n    \"email\": \"thana.najem13@gmail.com\",\r\n    \"password\": \"Tt123456789\",\r\n    \"cPassword\":\"Tt123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/auth/signup",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"if(jsonData.accessToken){\r",
+									"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken);\r",
+									"} \r",
+									"\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"thana.najem13@gmail.com\",\r\n    \"password\": \"Tt123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/auth/signin",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/auth/refreshToken/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNhN2I0YTFhYWMxMTExMzdmMDlhNyIsImlhdCI6MTY2OTU3MjUzMiwiZXhwIjoxNjY5NTc2MTMyfQ.29-ReQnJgyOUYZpYMBys2ji_lRsW9pzxeJUm446IdDg",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"refreshToken",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNhN2I0YTFhYWMxMTExMzdmMDlhNyIsImlhdCI6MTY2OTU3MjUzMiwiZXhwIjoxNjY5NTc2MTMyfQ.29-ReQnJgyOUYZpYMBys2ji_lRsW9pzxeJUm446IdDg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"Tt123456789\",\r\n    \"code\":\"7rMMBjk42LE62PlOzBGAH\",\r\n    \"email\":\"thana.najem13@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/auth/resetPassword",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODE2YTUyMGJkNzQ3YTg0YmYyNWY2NyIsImlhdCI6MTY2OTQ5MjA3NywiZXhwIjoxNjY5NTc4NDc3fQ.7VkgCNtT_WqMd-PvpfP0XpFcRTU2JDRZSDTjde993nM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/user/",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNiOTIyYzUyZThlMDdhYWY4OGRhYyIsImlhdCI6MTY2OTU3NzAzNywiZXhwIjoxNjY5NjYzNDM3fQ.nrmF_Mv7rFfEj2XVQ7Rpee4Ts-Jk8JEvAooiy6a9-lQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"Tt12345678\" ,\r\n    \"newPassword\":\"Tt123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/user/updatePassword",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "softDelete",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNjZDUwYzZmNmIxMjc2ZTkzMTUwMCIsImlhdCI6MTY2OTU4MjIwMCwiZXhwIjoxNjY5NjY4NjAwfQ.-onJ6aeaqSGopSi49gjGEZrVesox4imC9iOUm3yL1Dw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/user/softDelete",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"softDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blockUser",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTU4NjA0Nn0.t5gtQX8z8vVzPGjdtAnSPgeyigDh2z_Ksa7UzWFVj68",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/user/blockUser/6383cd50c6f6b1276e931500",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"blockUser",
+								"6383cd50c6f6b1276e931500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNjZDUwYzZmNmIxMjc2ZTkzMTUwMCIsImlhdCI6MTY2OTU4MjIwMCwiZXhwIjoxNjY5NjY4NjAwfQ.-onJ6aeaqSGopSi49gjGEZrVesox4imC9iOUm3yL1Dw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/user/getUser/6383cd50c6f6b1276e931500",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"getUser",
+								"6383cd50c6f6b1276e931500"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create categry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODE2YTUyMGJkNzQ3YTg0YmYyNWY2NyIsImlhdCI6MTY2OTQ5MjA3NywiZXhwIjoxNjY5NTc4NDc3fQ.7VkgCNtT_WqMd-PvpfP0XpFcRTU2JDRZSDTjde993nM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/brain.png"
+								},
+								{
+									"key": "name",
+									"value": "test#96",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/category/",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODE2YTUyMGJkNzQ3YTg0YmYyNWY2NyIsImlhdCI6MTY2OTQ5MjA3NywiZXhwIjoxNjY5NTc4NDc3fQ.7VkgCNtT_WqMd-PvpfP0XpFcRTU2JDRZSDTjde993nM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/islamic-theme-vector-7154598.jpg"
+								},
+								{
+									"key": "name",
+									"value": "test#30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/category/638283e7f1c5a0f14fcdd41c",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"638283e7f1c5a0f14fcdd41c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/category?page=1&size=5",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fixed category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/category/638283e7f1c5a0f14fcdd41c",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"638283e7f1c5a0f14fcdd41c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subCategory",
+			"item": [
+				{
+					"name": "create sub categry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg0MTgyNywiZXhwIjoxNjY5OTI4MjI3fQ.1r-UB8Ni2LofbY6Ct9C9yFqtO0hlRmIdOUnyE8okqrc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/lYoVi0QTAdkVk7A_5JJIL109RapP1qxhclyhZXPGKt0Dun4-aCM5Wyu0UPDoMYmtest.png"
+								},
+								{
+									"key": "name",
+									"value": "test#4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/category/6387c89fe14d8dc02687f496/subCategory",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"6387c89fe14d8dc02687f496",
+								"subCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update sub categry",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODE2YTUyMGJkNzQ3YTg0YmYyNWY2NyIsImlhdCI6MTY2OTQ5MjA3NywiZXhwIjoxNjY5NTc4NDc3fQ.7VkgCNtT_WqMd-PvpfP0XpFcRTU2JDRZSDTjde993nM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/lYoVi0QTAdkVk7A_5JJIL109RapP1qxhclyhZXPGKt0Dun4-aCM5Wyu0UPDoMYmtest.png"
+								},
+								{
+									"key": "name",
+									"value": "test#99",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/category/638283e7f1c5a0f14fcdd41c/subCategory/6382b64d551c09d85f78db17",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"638283e7f1c5a0f14fcdd41c",
+								"subCategory",
+								"6382b64d551c09d85f78db17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODE2YTUyMGJkNzQ3YTg0YmYyNWY2NyIsImlhdCI6MTY2OTQ5MjA3NywiZXhwIjoxNjY5NTc4NDc3fQ.7VkgCNtT_WqMd-PvpfP0XpFcRTU2JDRZSDTjde993nM",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/category/6382c0340e52ad87c783f669/subCategory/",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"6382c0340e52ad87c783f669",
+								"subCategory",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fixed category Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/category/638283e7f1c5a0f14fcdd41c",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"category",
+								"638283e7f1c5a0f14fcdd41c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brand",
+			"item": [
+				{
+					"name": "createBrand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg0MTgyNywiZXhwIjoxNjY5OTI4MjI3fQ.1r-UB8Ni2LofbY6Ct9C9yFqtO0hlRmIdOUnyE8okqrc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "dress",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/islamic-theme-vector-7154598.jpg"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/brand",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBrand",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg0MTgyNywiZXhwIjoxNjY5OTI4MjI3fQ.1r-UB8Ni2LofbY6Ct9C9yFqtO0hlRmIdOUnyE8okqrc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/brand/6387c448525e2ffd783b18c2",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"brand",
+								"6387c448525e2ffd783b18c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/brand?page=1&size=12",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"brand"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg0MTgyNywiZXhwIjoxNjY5OTI4MjI3fQ.1r-UB8Ni2LofbY6Ct9C9yFqtO0hlRmIdOUnyE8okqrc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product#13",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "25",
+									"type": "text"
+								},
+								{
+									"key": "subcategoryId",
+									"value": "6387d57287af06565e3356ed",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "6387c89fe14d8dc02687f496",
+									"type": "text"
+								},
+								{
+									"key": "brandId",
+									"value": "6387c448525e2ffd783b18c2",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/islamic-theme-vector-7154598.jpg"
+								},
+								{
+									"key": "discount",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/product",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg0MTgyNywiZXhwIjoxNjY5OTI4MjI3fQ.1r-UB8Ni2LofbY6Ct9C9yFqtO0hlRmIdOUnyE8okqrc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product#13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "amount",
+									"value": "100",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "25",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subcategoryId",
+									"value": "6387d57287af06565e3356ed",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "categoryId",
+									"value": "6387c89fe14d8dc02687f496",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "brandId",
+									"value": "6387c448525e2ffd783b18c2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/islamic-theme-vector-7154598.jpg"
+								},
+								{
+									"key": "discount",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "publicID",
+									"value": "OnlineCommerce/products/6387e60aaa7154377e7b461c/yasyrtyljc14cecieewo",
+									"type": "text"
+								},
+								{
+									"key": "publicID",
+									"value": "OnlineCommerce/products/product13/q3mpmohff0iotsv9p6km",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/Technipal/Desktop/mage/test12.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/product/6387e60aaa7154377e7b461c",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product",
+								"6387e60aaa7154377e7b461c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/product",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product od subcategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/product/subCategory/6387d57287af06565e3356ed?page=1&size=3",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product",
+								"subCategory",
+								"6387d57287af06565e3356ed"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product of category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/product/category/6387c89fe14d8dc02687f496?page=1&size=3",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product",
+								"category",
+								"6387c89fe14d8dc02687f496"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/product/name?page=2&size=5",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"product",
+								"name"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "add review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"good\",\r\n    \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/reviews/638805ab0004b1222c08b047",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"638805ab0004b1222c08b047"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"excellent\",\r\n    \"rating\":4.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/reviews/638838961de5f065b8c53eb3",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"638838961de5f065b8c53eb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete rate",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/reviews/63881daf76af47d9243400b0",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"63881daf76af47d9243400b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get reviews of product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"good\",\r\n    \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/reviews/638805ab0004b1222c08b047",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"638805ab0004b1222c08b047"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews of user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"good\",\r\n    \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/reviews/638805ab0004b1222c08b047",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"638805ab0004b1222c08b047"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews of user on product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"good\",\r\n    \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/reviews/user/6383db147203934bdef64203/product/638805ab0004b1222c08b047",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"reviews",
+								"user",
+								"6383db147203934bdef64203",
+								"product",
+								"638805ab0004b1222c08b047"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coupon",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/coupon",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete coupon",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/coupon/638845605847bce012cf3331",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"coupon",
+								"638845605847bce012cf3331"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update coupon",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"amount\":7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/coupon/638846b45e2226579b3a4e59",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"coupon",
+								"638846b45e2226579b3a4e59"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apply coupon",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Hamada__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNkYjE0NzIwMzkzNGJkZWY2NDIwMyIsImlhdCI6MTY2OTg2NjEwMiwiZXhwIjoxNjY5OTUyNTAyfQ.ubm1w19UQsinbDB_I-ArMc3eF_rhc_3sH0o6MoSMUmw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"code\":\"9JV7kXY7eU9SDfLUKdr3v\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/coupon/apply",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"coupon",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": ""
+		}
+	]
+}
